@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+	<mat-card>
+		<form fxLayout="column wrap" name="form" (ngSubmit)="save()" #formUser="ngForm">
+			<p>CADASTRE UMA NOVA CONTA</p>
+			<mat-form-field>
+				<input type="text" name="name" matInput placeholder="Nome" [(ngModel)]="user.name">
+			</mat-form-field>
+			<mat-form-field>
+				<input type="email" name="email" matInput placeholder="E-mail" [(ngModel)]="user.email">
+			</mat-form-field>
+			<mat-form-field>
+				<input type="password" name="password" matInput placeholder="Senha" [(ngModel)]="user.password">
+			</mat-form-field>
+			<mat-form-field>
+				<input type="password" name="password" matInput placeholder="Confirmação de senha" [(ngModel)]="user.confirmPassword">
+			</mat-form-field>
+			<div fxLayout="column">
+				<button type="submit" mat-raised-button color="primary">Criar conta</button>
+				<mat-error *ngIf="error.length > 0">
+					{{error}}
+				</mat-error>
+			</div>
+		</form>
+	</mat-card>
+</div>
+
+<!--name:string;
+    email:string;
+    password:string;
+    confirmPassword:string;-->

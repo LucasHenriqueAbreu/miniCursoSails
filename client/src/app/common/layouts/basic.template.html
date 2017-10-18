@@ -1,0 +1,45 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" class="main-menu">
+        <mat-list class="main-menu">
+            <h3 mat-subheader class="textMenu">Menu</h3>
+            <mat-list-item>
+                <mat-icon class="iconMenu" mat-list-icon>perm_identity</mat-icon>
+                <h4 mat-line class="textMenu">
+                    <a class="textMenu" [routerLink]="['/perfil']">
+                        <p>Perfil</p>
+                    </a>
+                </h4>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon class="iconMenu" mat-list-icon>mode_edit</mat-icon>
+                <h4 mat-line class="textMenu">
+                    <a class="textMenu" [routerLink]="['/todo']">
+                        <p>Todo</p>
+                    </a>
+                </h4>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <div class="my-content">
+        <mat-toolbar color="primary">
+            <button *ngIf="!sidenav.opened" mat-icon-button (click)="sidenav.open()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <button *ngIf="sidenav.opened" mat-icon-button (click)="sidenav.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+            <span>Todo</span>
+            <span fxFlex></span>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/login']">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Sair</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

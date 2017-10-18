@@ -10,5 +10,8 @@ module.exports.policies = {
 	"*": ["isAuthorized"],
 	AuthController: {
 		"*": true
+	},
+	UserController: {
+		"create": true
 	}
 };

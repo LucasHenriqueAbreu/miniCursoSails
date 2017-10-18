@@ -1,0 +1,33 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+	<mat-card>
+		<mat-card-header>
+			<mat-card-title>Todo</mat-card-title>
+			<mat-card-subtitle>Qualquer descrição, não pensei em nada agora</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-content>
+			<form fxLayout="row" #formCadastro="ngForm">
+				<mat-form-field fxFlex>
+					<input type="todo" name="todo" matInput placeholder="Descrição" [(ngModel)]="todo.descricao">
+				</mat-form-field>
+				<button (click)="save()" mat-icon-button>
+					<mat-icon class="mat-24">add</mat-icon>
+				</button>
+			</form>
+			<mat-list style="max-height:60vh ">
+				<mat-list-item *ngFor="let item of todos">
+					<h3 matLine> {{item.descricao}} </h3>
+					<p matLine> {{item.id}} </p>
+					<span fxFlex></span>
+					<div fxLayout="row">
+						<button mat-icon-button>
+							<mat-icon class="mat-24" (click)="todo = item">mode_edit</mat-icon>
+						</button>
+						<button mat-icon-button>
+							<mat-icon class="mat-24" (click)="delete(item.id)">delete</mat-icon>
+						</button>
+					</div>
+				</mat-list-item>
+			</mat-list>
+		</mat-card-content>
+	</mat-card>
+</div>

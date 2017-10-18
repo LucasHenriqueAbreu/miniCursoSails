@@ -13,6 +13,6 @@ module.exports = {
 			required: true,
 			unique: true
 		}
-	},
+	}
 };
 
